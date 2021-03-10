@@ -1,0 +1,25 @@
+[
+    {
+      "type": "readers.ept",
+      "filename": "https://ept-m3dc-pmsp.s3-sa-east-1.amazonaws.com/ept.json",
+      "bounds": "([325196.0, 337004.0], [7379949.0, 7392018.0])",
+      "threads": 8,
+      "resolution": 2
+    },
+    {
+        "type":"filters.range",
+        "limits":"UserData[0:255],Classification[6:6]"
+    },
+    {
+        "type":"filters.voxeldownsize",
+        "cell":1.0,
+        "mode":"center"
+    },
+    {
+        "filename":"./resultados/edificacoes.csv",
+        "format":"csv",
+        "order":"X:0,Y:0,UserData:0",
+        "keep_unspecified":"false",
+        "type": "writers.text"
+    }
+]
