@@ -1,0 +1,39 @@
+[
+    {
+        "type": "readers.ept", 
+        "filename": "https://ept-m3dc-pmsp.s3-sa-east-1.amazonaws.com/ept.json", "bounds": "([325196.8026283088, 337003.9343208949], [7404087.429682808, 7409478.1799999997019768])", 
+        "threads": 8, 
+        "resolution": 1
+    },
+    {
+        "type":"filters.range",
+        "limits":"UserData[0:255],Classification[6:6]"
+    },
+    {
+        "type":"filters.ferry",
+        "dimensions":"UserData => Z"
+    }, 
+    {
+        "type": "writers.las",
+        "filename": "./resultados/BHM-12.laz",
+        "compression": "laszip"
+    },
+    {
+        "filename":"./resultados/BHM-12.gpkg",
+        "gdaldriver":"GPKG",
+        "output_type":"max",
+        "resolution":"1.0",
+        "nodata":"0",
+        "data_type": "uint8",
+        "type": "writers.gdal"
+    },
+    {
+        "filename":"./resultados/BHM-12.tif",
+        "gdaldriver":"GTiff",
+        "output_type":"max",
+        "resolution":"1.0",
+        "nodata":"0",
+        "data_type": "uint8",
+        "type": "writers.gdal"
+    }
+]

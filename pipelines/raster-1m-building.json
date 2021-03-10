@@ -1,0 +1,35 @@
+[
+    {
+      "type": "readers.ept",
+      "filename": "https://ept-m3dc-pmsp.s3-sa-east-1.amazonaws.com/ept.json",
+      "bounds": "([336660.93307649984, 337183.60933703714], [7386487.347629301, 7393537.052770114])",
+      "threads": 8,
+      "resolution": 4
+    },
+    {
+        "type":"filters.range",
+        "limits":"UserData[0:255],Classification[6:6]"
+    },
+    {
+        "type":"filters.ferry",
+        "dimensions":"UserData => Z"
+    },
+    {
+        "filename":"./resultados/edificacoes.gpkg",
+        "gdaldriver":"GPKG",
+        "output_type":"max",
+        "resolution":"1.0",
+        "nodata":"0",
+        "data_type": "uint8",
+        "type": "writers.gdal"
+    },
+    {
+        "filename":"./resultados/edificacoes.tif",
+        "gdaldriver":"GTiff",
+        "output_type":"max",
+        "resolution":"1.0",
+        "nodata":"0",
+        "data_type": "uint8",
+        "type": "writers.gdal"
+    }
+]
