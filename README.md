@@ -10,7 +10,7 @@ Este repositório tem o objetivo de documentar o processo de obtenção do Raste
 
 Para obtenção do resultado, foi utilizado Python e a biblioteca Pdal afim de acessar os dados da publicação da nuvem de pontos LiDAR MDS da Cidade de São Paulo. A cidade foi particionada em uma articulação UTM, tomando como limites a caixa delimitadora mínima do município, dividindo-a em 24 quadrículas, sendo 4 horizontais e 6 verticais, nomeadas de 01 à 24 iniciando no canto inferior à sudoeste, de baixo para cima, linha por linha, e suprimidas aquelas que não intersectavam com o limite do município, conforme a imagem abaixo.
 
-![Articulação MA](articulacao-MA.png)
+![Articulação MA](Articulação-MA.png)
 
 ## Resultados
 
