@@ -3,30 +3,37 @@
       "type": "readers.ept",
       "filename": "https://ept-m3dc-pmsp.s3-sa-east-1.amazonaws.com/ept.json",
       "bounds": "([336660.93307649984, 337183.60933703714], [7386487.347629301, 7393537.052770114])",
-      "threads": 8,
-      "resolution": 4
+      "threads": 10,
+      "resolution": 4,
+      "spatialreference":"EPSG:31983"
     },
     {
         "type":"filters.range",
-        "limits":"UserData[0:255],Classification[6:6]"
+        "limits":"UserData[0:255],Classification[5:5]"
     },
     {
         "type":"filters.ferry",
         "dimensions":"UserData => Z"
     },
     {
+        "type":"filters.reprojection",
+        "out_srs":"EPSG:31983"
+    },
+    {
         "filename":"./resultados/edificacoes.gpkg",
         "gdaldriver":"GPKG",
-        "output_type":"max",
+        "output_type":"min",
         "resolution":"1.0",
         "nodata":"0",
         "data_type": "uint8",
+        "gdalopts":"TABLE='Modelo de Altura de edificação',RASTER_TABLE='Modelo de Altura de edificação',RASTER_IDENTIFIER=altura",
+        "dimension":"Z",
         "type": "writers.gdal"
     },
     {
         "filename":"./resultados/edificacoes.tif",
         "gdaldriver":"GTiff",
-        "output_type":"max",
+        "output_type":"min",
         "resolution":"1.0",
         "nodata":"0",
         "data_type": "uint8",
