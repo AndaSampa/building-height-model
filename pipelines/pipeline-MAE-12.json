@@ -1,0 +1,41 @@
+[
+    {
+        "type": "readers.ept", 
+        "filename": "https://ept-m3dc-pmsp.s3-sa-east-1.amazonaws.com/ept.json",
+        "bounds": "([325196.8026283088, 337003.9343208949], [7404087.429682808, 7416156.351973848])", 
+        "threads": 10, 
+        "resolution": 5, 
+        "spatialreference": "EPSG:31983"
+    }, 
+    {
+        "type": "filters.range", 
+        "limits": "UserData[0:255],Classification[6:6]"
+    }, 
+    {
+        "type": "filters.ferry", 
+        "dimensions": "UserData => Z"
+    }, 
+    {
+        "type": "filters.reprojection", 
+        "out_srs": "EPSG:31983"
+    }, 
+    {
+        "filename": "./resultados/MAE-12.gpkg", 
+        "gdaldriver": "GPKG", 
+        "output_type": "min", 
+        "resolution": "1.0", 
+        "nodata": "0", 
+        "data_type": "uint8", 
+        "gdalopts": "TABLE='Modelo de Altura de edificação',RASTER_TABLE='Modelo de Altura de edificação',RASTER_IDENTIFIER=altura", 
+        "type": "writers.gdal"
+    }, 
+    {
+        "filename": "./resultados/MAE-12.tif", 
+        "gdaldriver": "GTiff", 
+        "output_type": "min", 
+        "resolution": "1.0", 
+        "nodata": "0", 
+        "data_type": "uint8", 
+        "type": "writers.gdal"
+    }
+]
