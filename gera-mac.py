@@ -34,7 +34,7 @@ pipeline = [
     {
         "filename":"./resultados/edificacoes.gpkg",
         "gdaldriver":"GPKG",
-        "output_type":"min",
+        "output_type":"max",
         "resolution":"1.0",
         "nodata":"0",
         "data_type": "uint8",
@@ -44,7 +44,7 @@ pipeline = [
     {
         "filename":"./resultados/edificacoes.tif",
         "gdaldriver":"GTiff",
-        "output_type":"min",
+        "output_type":"max",
         "resolution":"1.0",
         "nodata":"0",
         "data_type": "uint8",

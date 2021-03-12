@@ -22,7 +22,7 @@
     {
         "filename": "./resultados/MAE-12.gpkg", 
         "gdaldriver": "GPKG", 
-        "output_type": "min", 
+        "output_type": "max", 
         "resolution": "1.0", 
         "nodata": "0", 
         "data_type": "uint8", 
@@ -32,7 +32,7 @@
     {
         "filename": "./resultados/MAE-12.tif", 
         "gdaldriver": "GTiff", 
-        "output_type": "min", 
+        "output_type": "max", 
         "resolution": "1.0", 
         "nodata": "0", 
         "data_type": "uint8", 
