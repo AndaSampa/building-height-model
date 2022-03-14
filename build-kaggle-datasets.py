@@ -70,11 +70,15 @@ for i, row in quadriculas.iterrows():
                 pdal_pipeline = pdal.Pipeline(json.dumps(pipeline[0:4]))
                 pdal_pipeline.execute()
             except:
-                print(f'SCM {scm} sem edificação!')
-                pipeline_sv = pipeline.copy()
-                del pipeline_sv[3]
-                pdal_pipeline = pdal.Pipeline(json.dumps(pipeline_sv))
-                pdal_pipeline.execute()
+                try:
+                    print(f'SCM {scm} sem edificação!')
+                    pipeline_sv = pipeline.copy()
+                    del pipeline_sv[3]
+                    pdal_pipeline = pdal.Pipeline(json.dumps(pipeline_sv))
+                    pdal_pipeline.execute()
+                except:
+                    continue
+                
         
 
 
