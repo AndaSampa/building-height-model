@@ -51,10 +51,17 @@ for i, row in quadriculas.iterrows():
     scm = row.qmdt_cod
     bhm_file = f'{dest_folder}/BHM/BHM-{scm}.tif'
     vhm_file = f'{dest_folder}/VHM/VHM-{scm}.tif'
+    touch_file = f'{dest_folder}/touch-files/{scm}.txt'
 
     if exists(bhm_file) and exists(vhm_file):
         continue
     else:
+        
+        if exists(touch_file):
+            continue
+        else:
+            open(touch_file, 'a').close()
+
         print(f'Processando SMC: {scm} ...')
         pipeline[0]['filename'] = f"https://laz-m3dc-pmsp.s3-sa-east-1.amazonaws.com/MDS_color_{scm}.laz"
         pipeline[3]['filename'] = bhm_file
