@@ -23,6 +23,10 @@ pipeline=[
         "raster": "/media/feromes/FEROMES/MDT_sampa-ZSTD.tif"
     },
     {
+        "type":"filters.ferry",
+        "dimensions":"HeightAboveGround => Z"
+    },
+    {
         "filename":"processamentos/BHM-3314-231.tif",
         "gdaldriver":"GTiff",
         "output_type":"max",
@@ -64,8 +68,8 @@ for i, row in quadriculas.iterrows():
 
         print(f'Processando SMC: {scm} ...')
         pipeline[0]['filename'] = f"https://laz-m3dc-pmsp.s3-sa-east-1.amazonaws.com/MDS_color_{scm}.laz"
-        pipeline[3]['filename'] = bhm_file
-        pipeline[4]['filename'] = vhm_file
+        pipeline[4]['filename'] = bhm_file
+        pipeline[5]['filename'] = vhm_file
 
         pdal_pipeline = pdal.Pipeline(json.dumps(pipeline))
 
@@ -80,7 +84,7 @@ for i, row in quadriculas.iterrows():
                 try:
                     print(f'SCM {scm} sem edificação!')
                     pipeline_sv = pipeline.copy()
-                    del pipeline_sv[3]
+                    del pipeline_sv[4]
                     pdal_pipeline = pdal.Pipeline(json.dumps(pipeline_sv))
                     pdal_pipeline.execute()
                 except:
