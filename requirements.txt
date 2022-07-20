@@ -2,3 +2,4 @@ rasterio
 jupyter
 numpy
 scipy
+rasterstats
