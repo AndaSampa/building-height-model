@@ -12,7 +12,7 @@ quadriculas = gpd.read_file('zip://GIS/SIRGAS_SHP_quadriculamdt.zip!SIRGAS_SHP_q
 pipeline=[
     {
         "type": "readers.las",
-        "filename": "https://laz-m3dc-pmsp.s3-sa-east-1.amazonaws.com/MDS_color_3436-442.laz"
+        "filename": "https://laz-m3dc-pmsp.s3-sa-east-1.amazonaws.com/MDS_color_3213-362.laz"
     },
     {
         "type":"filters.range",
@@ -20,7 +20,7 @@ pipeline=[
     },
     {
         "type":"filters.hag_dem",
-        "raster": "/media/feromes/FEROMES/MDT_sampa-ZSTD.tif"
+        "raster": "/home/fernando/dev/svfpy/data/raster/MDT_sampa-ZSTD.tif"
     },
     {
         "type":"filters.ferry",
@@ -29,7 +29,7 @@ pipeline=[
     {
         "filename":"processamentos/BHM-3314-231.tif",
         "gdaldriver":"GTiff",
-        "output_type":"max",
+        "output_type":"mean",
         "resolution":"0.5",
         "nodata":"0",
         "data_type": "float32",
@@ -40,7 +40,7 @@ pipeline=[
     {
         "filename":"processamentos/VHM-3314-231.tif",
         "gdaldriver":"GTiff",
-        "output_type":"max",
+        "output_type":"mean",
         "resolution":"0.5",
         "nodata":"0",
         "data_type": "float32",
@@ -78,7 +78,7 @@ for i, row in quadriculas.iterrows():
         except: 
             try:
                 # print(f'SCM {scm} sem vegetação!')
-                pdal_pipeline = pdal.Pipeline(json.dumps(pipeline[0:4]))
+                pdal_pipeline = pdal.Pipeline(json.dumps(pipeline[0:5]))
                 pdal_pipeline.execute()
             except:
                 try:

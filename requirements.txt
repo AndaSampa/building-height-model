@@ -1,4 +1,9 @@
+pdal
+python-pdal 
+gdal
+geopandas
 rasterio
+rioxarray
 jupyter
 numpy
 scipy
