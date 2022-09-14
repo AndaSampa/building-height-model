@@ -29,7 +29,7 @@ pipeline=[
     {
         "filename":"processamentos/BHM-3314-231.tif",
         "gdaldriver":"GTiff",
-        "output_type":"mean",
+        "output_type":"max",
         "resolution":"0.5",
         "nodata":"0",
         "data_type": "float32",
@@ -40,7 +40,7 @@ pipeline=[
     {
         "filename":"processamentos/VHM-3314-231.tif",
         "gdaldriver":"GTiff",
-        "output_type":"mean",
+        "output_type":"max",
         "resolution":"0.5",
         "nodata":"0",
         "data_type": "float32",
