@@ -1,3 +1,5 @@
 resultados/*.tif
 resultados/*.xml
 tmp/*
+venv/*
+processamentos/*
